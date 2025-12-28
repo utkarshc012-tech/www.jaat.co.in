@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>www.Jaat.com | Pride • Unity • Progress</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;      /* slate-900 */
+      --accent: #22c55e;       /* green-500 */
+      --muted: #64748b;        /* slate-500 */
+      --card: #ffffff;
+      --bg: #f8fafc;           /* slate-50 */
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--primary);
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.75);
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: auto; padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #facc15, #f59e0b, #facc15);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand span { color: var(--accent); }
+    .menu a { margin-left: 18px; font-weight: 500; color: #334155; }
+
+    /* Hero */
+    .hero {
+      background: radial-gradient(1200px 500px at 10% -10%, #1e293b, transparent),
+                  radial-gradient(800px 400px at 90% 10%, #020617, transparent),
+                  linear-gradient(180deg, #020617, #0f172a);
+      padding: 110px 20px 90px;
+      color: #f8fafc;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: auto;
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px;
+      align-items: center;
+    }
+    .badge {
+      display: inline-block; padding: 6px 12px; border-radius: 999px;
+      background: #ecfeff; color: #0369a1; font-weight: 600; font-size: 12px;
+    }
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.05;
+      margin: 14px 0;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .hero p { color: var(--muted); font-size: 16px; }
+    .cta {
+      margin-top: 22px; display: flex; gap: 14px; flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 18px; border-radius: 12px; font-weight: 600;
+      border: 1px solid transparent; cursor: pointer;
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      color: #020617;
+      box-shadow: 0 10px 25px rgba(245,158,11,0.45);
+    }
+    .btn.ghost { background: #ffffff; border-color: #e5e7eb; }
+
+    .hero-card {
+      background: linear-gradient(145deg, #020617, #020617);
+      color: #e5e7eb;
+      border-radius: 26px;
+      padding: 32px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.55);
+      border: 1px solid rgba(250,204,21,0.15);
+    }
+    .hero-card h3 { margin-top: 0; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .stat {
+      background: rgba(255,255,255,0.08); border-radius: 14px; padding: 14px;
+      text-align: center;
+    }
+    .stat strong { font-size: 22px; }
+
+    /* Sections */
+    .section { padding: 70px 20px; }
+    .container { max-width: 1100px; margin: auto; }
+    .section h2 { font-size: 32px; margin: 0 0 10px; }
+    .section p.lead { color: var(--muted); max-width: 720px; }
+
+    /* Cards */
+    .grid {
+      margin-top: 30px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    }
+    .card {
+      background: var(--card); border-radius: 18px; padding: 22px;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.08);
+    }
+    .icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: grid; place-items: center; font-size: 22px;
+      background: #dcfce7; color: #166534; margin-bottom: 10px;
+    }
+
+    /* Timeline */
+    .timeline { margin-top: 30px; border-left: 3px solid #e5e7eb; padding-left: 22px; }
+    .event { margin-bottom: 22px; }
+    .event h4 { margin: 0; }
+    .event p { margin: 6px 0 0; color: var(--muted); }
+
+    /* Footer */
+    footer { background: #020617; color: #cbd5f5; }
+    .footer-inner { max-width: 1100px; margin: auto; padding: 28px 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    footer a { color: #86efac; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    @media (max-width: 520px) {
+      .hero h1 { font-size: 34px; }
+      .stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">www.JAAT.com</div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#values">Values</a>
+        <a href="#history">History</a>
+        <a href="#join">Join</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="badge">Pride • Unity • Progress</span>
+        <h1>Welcome to the Jaat</h1>
+        <p>
+          A modern community platform celebrating culture, courage, and contribution—
+          while empowering the next generation through education and unity.
+        </p>
+        <div class="cta">
+          <button class="btn primary">Explore Community</button>
+          <button class="btn ghost">Member Stories</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Community Snapshot</h3>
+        <div class="stats">
+          <div class="stat"><strong>Unity</strong><div>Strong Bonds</div></div>
+          <div class="stat"><strong>Honor</strong><div>Rich Values</div></div>
+          <div class="stat"><strong>Growth</strong><div>Future Ready</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section class="reveal" id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p class="lead">
+        Hi, I'm <strong>Utkarsh Chaudhary</strong>, a a learner and proud member of the Jaat community.
+        I believe in discipline, learning, and using modern skills to uplift myself and my community.
+      </p>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="reveal" id="portfolio">
+    <div class="container">
+      <h2>My Portfolio</h2>
+      <p class="lead">A glimpse of my skills, learning, and interests.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">💻</div>
+          <h3>Student & Learner</h3>
+          <p>Continuously learning with a strong interest in technology and academics.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📊</div>
+          <h3>Basic Programming</h3>
+          <p>Learning Python, data handling, and logical problem solving.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Future Goals</h3>
+          <p>To build a successful career and contribute positively to society and my community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Values -->
+  <section class="reveal" id="values">
+    <div class="container">
+      <h2>Jaat Values</h2>
+      <p class="lead">Principles that define our identity.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🛡️</div>
+          <h3>Courage</h3>
+          <p>Fearless attitude and standing for truth.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🤝</div>
+          <h3>Unity</h3>
+          <p>Strength through togetherness and mutual respect.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📚</div>
+          <h3>Education</h3>
+          <p>Modern education as the key to progress.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section class="reveal" id="history">
+    <div class="container">
+      <h2>Community Heritage</h2>
+      <p class="lead">Tradition evolving with modern thinking.</p>
+      <div class="timeline">
+        <div class="event">
+          <h4>Strong Roots</h4>
+          <p>Known historically for bravery, leadership, and self-respect.</p>
+        </div>
+        <div class="event">
+          <h4>Nation Builders</h4>
+          <p>Contributions in agriculture, defense, and governance.</p>
+        </div>
+        <div class="event">
+          <h4>Modern Generation</h4>
+          <p>Focused on education, innovation, and global success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join -->
+  <section class="reveal" id="join">
+    <div class="container">
+      <h2>Connect With Us</h2>
+      <p class="lead">Grow together as individuals and as a community.</p>
+      <div class="cta">
+        <button class="btn primary">Join Community</button>
+        <button class="btn ghost">Contact Me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>© 2025 Utkarsh Chaudhary | Jaat</div>
+      <div>Built with pride & progress</div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        const visible = 150;
+        if (top < window.innerHeight - visible) {
+          el.classList.add('active');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+
+</body>
+</html>
+
+</body>
+</html>
